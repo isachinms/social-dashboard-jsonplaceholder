@@ -8,11 +8,11 @@ import { ProtectedRoute } from './components/auth/ProtectedRoute'
 function App() {
     return (
         <BrowserRouter>
-            <div>
+            <div className="container">
                 <Switch>
                 <Route path="/" component={Login} exact={true}></Route>
                 <ProtectedRoute path="/social-dashboard" component={Dashboard} />
-                <Route path="*" component={() => <div>404 : Page not found</div>} />
+                <Route path="*" component={() => <div className="h2 text-center text-danger mt-5">404 : Page not found</div>} />
                 </Switch>
             </div>
         </BrowserRouter>

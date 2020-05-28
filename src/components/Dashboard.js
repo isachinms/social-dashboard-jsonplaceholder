@@ -37,10 +37,18 @@ class Dashboard extends React.Component {
     render() {
         const { user, posts, isPostsLoading } = this.state
         return (
-                <div>
-                    <Header logOut={this.logOut} />
-                    <Userprofile user={user} />
-                    { isPostsLoading ? <p>Please wait while posts being loaded...</p> : <Posts posts={posts}/> }
+                <div className="container">
+                    <Header logOut={this.logOut} /><hr/>
+                    <div className="card bg-light mb-5">
+                        <div className="card-body">
+                            <Userprofile user={user} /><hr/>
+                            { isPostsLoading ? (
+                                <div className="d-flex justify-content-center my-5">
+                                    <pre className="text-primary">Loading Posts... <span className="spinner-border spinner-border-sm mt-1"></span></pre>
+                                </div>
+                                ): <Posts posts={posts}/> }
+                        </div>
+                    </div>
                 </div>
         )
     }
